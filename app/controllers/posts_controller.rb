@@ -11,7 +11,7 @@ class PostsController < ApplicationController
       render :index
     end
     
- end
+    end
 
   def index
     @user = current_user
@@ -24,7 +24,7 @@ class PostsController < ApplicationController
     @user = @post.user
     @posts = @user.posts
     @post_new = Post.new
-    @post_comment = PostComment.new
+    #@post_comment = PostComment.new
   end
 
   def edit

@@ -6,11 +6,84 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+   <script src="https://kit.fontawesome.com/90880b6e75.js" crossorigin="anonymous"></script>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <nav class="nav navbar-left">
+        </nav>
+        
+        <nav>
+          <ul class="navbar-nav ml-auto">
+            <% if user_signed_in? %>
+            
+            <li>
+              <%= link_to"cat_life",root_path %>
+            </li>
+            
+            <li>
+            <%= link_to user_path(current_user), class: 'nav-link text-dark' do %>
+              <i class="fas fa-home"></i> Home
+            <% end %>
+         </li>
+        
+         <li>
+            <%= link_to users_path,class: 'nav-link text-dark' do %>
+            <i class="fas fa-users"></i>Users
+            <% end %>
+         </li>
+      
+         <li>
+            <%= link_to posts_path,class: 'nav-link text-dark' do %>
+            <i class="fa-solid fa-cat"></i>Posts
+            <% end %>
+         </li>
+      
+         <li>
+            <%= link_to destroy_user_session_path,method: :delete do%>
+            <i class="fas fa-sign-out-alt"></i>Log out
+            <% end %>
+         </li>
+      
+      <% else %>
+         <li>
+           <%= link_to"cat_life",root_path %>
+        </li>
+        <li>
+          <%= link_to root_path, class: 'nav-link text-dark' do %>
+              <i class="fas fa-home"></i> Home
+          <% end %>
+        </li>
+        
+        <li>
+          <%= link_to about_path, class: 'nav-link text-dark' do %>
+             <i class="fas fa-link"></i> About
+          <% end %>
+        </li>
+        
+        <li>
+          <%= link_to new_user_registration_path, class: 'nav-link text-dark' do %>
+            <i class="fas fa-user-plus"></i> Sign up
+          <% end %>
+        </li>
+       
+         <li>
+          <%= link_to new_user_session_path, class: 'nav-link text-dark' do %>
+           <i class="fas fa-sign-in-alt"></i> Log in
+          <% end %>
+        </li>
+      <% end %>
+        </ul>
+      </nav>
+    </div>  
+  </header>
     <%= yield %>
   </body>
+    <footer>
+      <p>CopyRight 2 Nishihara</p>
+    </footer>
 </html>

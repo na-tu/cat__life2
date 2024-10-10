@@ -67,9 +67,6 @@
            <% end %>
          </td>
 
-           <td><%= link_to post.title,post_path(post.id)%></td>
-           <td><%= post.body%></td>
-           <td><%= link_to "#{post.post_comments.count} コメント", post_path(post.id) %></td>
 
           </tr>
       <% end %>
