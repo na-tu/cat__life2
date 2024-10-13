@@ -1,2 +1,59 @@
-<h1>User#index</h1>
-<p>Find me in app/views/user/index.html.erb</p>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <h1>posts#index</h1>
+
+        <div>
+          <%= flash[:notice]%>
+        </div>
+
+        <h2>my page</h2>
+        <div>
+          <%= image_tag @user.get_profile_image(100, 100), size: "100x100"%>
+          <p>name: <%= @user.name %></p>
+          <p>introduction: <%= @user.introduction %></p>
+
+          <%= link_to edit_user_path(@user) do %>
+            <i class="fas fa-user-cog"></i>
+          <% end %>
+        </div>
+
+        <h2>New post</h2>
+        <%= form_with model: @post do |f| %>
+          <h5>Title</h5>
+          <%= f.text_field :title %>
+          <h5>Opinion</h5>
+          <%= f.text_area :body %>
+          <h5>cat image</h5>
+          <%= f.file_field :image, accept: "image/*" %>
+          <%= f.submit 'Create Post' %>
+        <% end %>
+      </div>
+
+      <div class="col-md-8 offset-md-1">
+        <h2>User</h2>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>image</th>
+              <th>name</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+
+          <% @users.each do |user| %>
+          <tr>
+            <td>
+              <%= image_tag @user.get_profile_image(100, 100), size: "100x100"%>
+            </td>
+            <td><%= user.name %></td>
+            <td><%= link_to "Show", user_path(user.id) %></td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>

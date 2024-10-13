@@ -1,9 +1,12 @@
-<h1>Users#show</h1>
-
 <main>
   <div class="container">
     <div class="row">
       <div class="col-md-3">
+        
+
+<h5>Users#show</h5>
+
+
 
 <div>
   <%= flash[:notice]%>
@@ -43,7 +46,7 @@
  　　　　　　　　　　 <%= f.file_field :image, accept: "image/*" %>
              <%= f.submit 'Create Post' %>
              <% end %>
-      </div>
+      
 
       <div class="col-md-8 offset-md-1">
         <h2>posts</h2>
@@ -67,9 +70,14 @@
            <% end %>
          </td>
 
+         <td><%= link_to post.title,post_path(post.id)%></td>
+         <td><%= post.body%></td>
 
           </tr>
       <% end %>
           </table>
-
+   </div>
+      </div>
+    </div>
+  </div>
 </main>
