@@ -2,81 +2,76 @@
   <div class="container">
     <div class="row">
       <div class="col-md-3">
-        
+        <h5>Users#show</h5>
 
-<h5>Users#show</h5>
+        <div>
+          <%= flash[:notice] %>
+        </div>
 
+        <h2>My Page</h2>
 
+        <%= image_tag @user.get_profile_image(100, 100), size: "100x100" %>
+        <br>
+        <strong>Name:</strong> <%= @user.name %>
+        <br>
+        <strong>Introduction:</strong> <%= @user.introduction %>
+        <br>
 
-<div>
-  <%= flash[:notice]%>
-</div>
-
-<h2>my page</h2>
-    <tbody>
-    <%= image_tag @user.get_profile_image(100, 100), size: "100x100"%>
-
-	   <br><th>name</th>
-      <br><th><%= @user.name %></th><br>
-       <th>introduction</th>
-        <th><%= @user.introduction%></th>
-
-          <%= link_to edit_user_path(@user) do %>
-	        <i class="fas fa-user-cog"></i>
-          <% end %>
-    </tbody>
-
-          <h2>New post</h2>
-  <% if @post.errors.any? %>
-    <%= @post.errors.count %>件のエラーが発生しました
-      <ul>
-        <% @post.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+        <%= link_to edit_user_path(@user) do %>
+          <i class="fas fa-user-cog"></i>
         <% end %>
-      </ul>
-  <% end %>
 
-            <%= form_with model: @post do |f| %>
+        <h2>New Post</h2>
 
+        <% if @post.errors.any? %>
+          <p><%= @post.errors.count %>件のエラーが発生しました</p>
+          <ul>
+            <% @post.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+
+        <%= form_with model: @post do |f| %>
           <h5>Title</h5>
-            <%= f.text_field :title %>
+          <%= f.text_field :title %>
+
           <h5>Opinion</h5>
-            <%= f.text_area :body %>
-          <h5>cat image</h5>
- 　　　　　　　　　　 <%= f.file_field :image, accept: "image/*" %>
-             <%= f.submit 'Create Post' %>
-             <% end %>
-      
+          <%= f.text_area :body %>
 
+          <h5>Cat Image</h5>
+          <%= f.file_field :image, accept: "image/*" %>
+
+          <%= f.submit 'Create Post' %>
+        <% end %>
+      </div>
+
+      <!-- メインコンテンツ部分 -->
       <div class="col-md-8 offset-md-1">
-        <h2>posts</h2>
-            <table class="table table-hover table-inverse">
-          <table>
-            <thead>
+        <h2>Posts</h2>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Title</th>
+              <th>Opinion</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @posts.each do |post| %>
               <tr>
-                <th></th>
-                <th>Title</th>
-                <th>Opinion</th>
-                 <th colspan="3"></th>
+                <td>
+                  <%= link_to user_path(post.user) do %>
+                    <%= image_tag post.user.get_profile_image(100, 100), size: "100x100" %>
+                  <% end %>
+                </td>
+                <td><%= link_to post.title, post_path(post.id) %></td>
+                <td><%= post.body %></td>
               </tr>
-            </thead>
-
-      <% @posts.each do |post| %>
-       <tr>
-         <td>
-          <%=link_to user_path(post.user) do %>
-          <!--画像にリンクをつける場合はlink_toが必要 -->
-           <%= image_tag post.user.get_profile_image(100, 100), size: "100x100" %>
-           <% end %>
-         </td>
-
-         <td><%= link_to post.title,post_path(post.id)%></td>
-         <td><%= post.body%></td>
-
-          </tr>
-      <% end %>
-          </table>
-   </div>
+            <% end %>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
