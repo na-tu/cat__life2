@@ -1,3 +1,47 @@
+body {
+  background-image: url('/assets/huwari_kira.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;  // ページスクロール時に固定
+}
+
+header {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #ffff2e;
+  margin-top: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #ffff2e;
+  margin-top: 40px;
+  font-family: 'Arial', sans-serif;
+}
+
+.top-text {
+  margin-top: 100px;
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);  // 背景を少し透かす
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+a {
+  display: inline-block;
+  margin: 10px;
+  
+  color: white;
+ 
+  background-color: rgba(255,105,212,0.5);
+  border-radius: 6px;
+  text-decoration: none;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+}
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
