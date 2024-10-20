@@ -12,7 +12,7 @@
   <tbody>
        <%= image_tag @user.get_profile_image(100, 100), size: "100x100"%>
 
-   
+
   <br><th>name</th>
     <th><%= @user.name %></th><br>
   <th>introduction</th>
@@ -42,7 +42,7 @@
  　　　　　 <%= f.file_field :image, accept: "image/*" %>
        <%= f.submit 'Create Post' %>
        <% end %>
-    </div>    
+    </div>
 
 <div class="col-md-8 offset-md-1">
   <h2>posts</h2>
@@ -55,15 +55,21 @@
           <th colspan="3"></th>
         </tr>
       </thead>
-  
+
 <% @posts.each do |post| %>
  <tr>
    <td>
-     <%=link_to user_path(post.user) do %>
-        <%=image_tag post.user.get_profile_image(100, 100), size: "100x100" %>
-     <% end %>
-   </td>
 
+       <%= link_to post_path(post) do %>
+         <% if post.image.attached? %>
+           <%= image_tag post.image.variant(resize_to_limit: [100, 100]), size: "100x100" %>
+           <% else %>
+         <p>画像がありません</p>
+         <% end %>
+        <% end %>
+   </td>
+    <td><%= link_to post.title,post_path(post.id)%></td>
+    <td><%= post.body %></td>
  </tr>
 <% end %>
  </table>

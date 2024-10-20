@@ -62,9 +62,13 @@
             <% @posts.each do |post| %>
               <tr>
                 <td>
-                  <%= link_to user_path(post.user) do %>
-                    <%= image_tag post.user.get_profile_image(100, 100), size: "100x100" %>
-                  <% end %>
+                  <%= link_to post_path(post) do %>
+         <% if post.image.attached? %>
+           <%= image_tag post.image.variant(resize_to_limit: [100, 100]), size: "100x100" %>
+           <% else %>
+         <p>画像がありません</p>
+         <% end %>
+        <% end %>
                 </td>
                 <td><%= link_to post.title, post_path(post.id) %></td>
                 <td><%= post.body %></td>
