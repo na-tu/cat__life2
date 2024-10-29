@@ -2,45 +2,57 @@
   background-image: url('/assets/huwari_kira.jpg');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;  // ページスクロール時に固定
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 header {
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: #ffff2e;
-  margin-top: 50px;
+  margin-top: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);  // テキストに影を追加して目立たせる
 }
 
 h1 {
-  text-align: center;
-  color: #ffff2e;
-  margin-top: 10px;
-  font-family: 'Arial', sans-serif;
-  font-size: 4em;
+  text-align: center;  // テキストを中央揃え
+  color: #ffff2e;  // テキストカラーを黄色に
+  margin-top: 10px;  // 上部の余白を10pxに
+  font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif;  // かわいい手書き風フォント
+  font-style: italic;  // 斜体でスタイリッシュに
+  font-size: 4rem;  // フォントサイズを大きく
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);  // テキストに立体感のある影
 }
 
 .top-text {
   margin-top: 100px;
   text-align: center;
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.8);  // 背景を少し透かす
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.85);  // 少し明るめにして見やすく
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);  // 少し濃い影で立体感を強調
+  font-size: 1.25rem;
+  width: 80%;
+  max-width: 600px;
 }
 
 a {
   display: inline-block;
-  margin: 5px;
-  
+  margin: 10px;
+  padding: 10px 20px;
   color: white;
- 
-  background-color: rgba(255,105,212,0.5);
-  border-radius: 20px;
+  background-color: rgba(255, 105, 212, 0.7);
+  border-radius: 25px;
   text-decoration: none;
-  font-size: 2em;
+  font-size: 1.5rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;  // ホバーで滑らかなアニメーション効果
   &:hover {
-    background-color: #0056b3;
+    background-color: #ff69d4;
+    transform: scale(1.05);  // ホバー時に少し大きくしてインタラクティブな印象に
   }
 }
 // Place all the styles related to the homes controller here.
