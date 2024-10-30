@@ -1,3 +1,79 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+/* メインコンテナのスタイル */
+/* メインコンテナのスタイル */
+.posts-page {
+  background-image: url('/assets/kira1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.posts-page .container {
+  background-color: rgba(255, 240, 245, 0.7); /* ピンク系の半透明 */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(255, 182, 193, 0.3); /* 柔らかい影 */
+}
+
+/* タイトルのスタイル */
+.posts-page h1, .posts-page h2, .posts-page h5 {
+  color: #ff69b4;
+  font-family: "Comic Sans MS", "Arial", sans-serif;
+  text-align: center;
+}
+
+/* エラーメッセージのスタイル */
+.posts-page .error {
+  color: #ff4500;
+  background-color: #ffe4b5;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* フォームのスタイル */
+.posts-page form p {
+  color: #ff1493;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 10px;
+}
+
+.posts-page form input[type="text"],
+.posts-page form input[type="file"],
+.posts-page form textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 10px;
+  border: 2px solid #ffb6c1;
+  background-color: #fffaf0;
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+.posts-page form input[type="text"]:focus,
+.posts-page form input[type="file"]:focus,
+.posts-page form textarea:focus {
+  border-color: #ff69b4;
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 182, 193, 0.5);
+}
+
+/* 送信ボタン */
+.posts-page form input[type="submit"] {
+  background-color: #ffb6c1;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.posts-page form input[type="submit"]:hover {
+  background-color: #ff69b4;
+}

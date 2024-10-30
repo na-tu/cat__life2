@@ -1,9 +1,82 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
 .users-page {
   background-image: url('/assets/kira1.jpg');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;  // ページスクロール時に固定
+  background-attachment: fixed;
+}
+
+/* メインコンテナのスタイル */
+.users-page .container {
+  background-color: rgba(255, 240, 245, 0.7); /* ピンク系の半透明 */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(255, 182, 193, 0.3); /* 柔らかい影 */
+}
+
+.users-page form p {
+  color: #ff1493;
+  font-weight: bold;
+  font-size: 2rem;
+  margin-top: 10px;
+}
+
+/* ユーザー情報 */
+.users-page h2, .users-page h5 {
+  color: #ff69b4;
+  font-family: "Comic Sans MS", "Arial", sans-serif; /* ポップでかわいいフォント */
+}
+
+.users-page strong {
+  color: #ff1493;
+}
+
+/* ボタンのスタイル */
+.users-page form input[type="submit"] {
+  background-color: #ffb6c1;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 15px;
+  font-size: 25px;
+  transition: background-color 0.3s ease;
+}
+
+.users-page form input[type="text"],
+.users-page form input[type="file"],
+.users-page form input[type="password"],
+.users-page form textarea {
+  width: 100%;
+  padding: 20px;
+  border-radius: 50px;
+  border: 10px solid #ffb6c1;
+  background-color: rgba(255, 240, 245, 0.7); /* ピンク系の半透明 */
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+
+.users-page form input[type="submit"]:hover {
+  background-color: #ff69b4;
+}
+
+/* テーブル */
+.table-hover thead {
+  background-color: #ffe4e1;
+  color: #ff1493;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #fff0f5;
+}
+
+/* エラーメッセージ */
+.users-page .error {
+  color: #ff4500;
+  background-color: #ffe4b5;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: bold;
 }
