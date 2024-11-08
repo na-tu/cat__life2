@@ -1,42 +1,8 @@
-<main>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3">
-        <h5>usrs#index</h5>
+<%= render 'posts/new_post', user: @user, post: @post %>
 
-        <div>
-          <%= flash[:notice]%>
-        </div>
-
-        <h2>My Page</h2>
-        <div>
-          <%= image_tag @user.get_profile_image(100, 100), size: "100x100"%>
-          
-        <br>
-          <strong>Name:</strong> <%= @user.name %>
-        <br>
-          <strong>Introduction:</strong> <%= @user.introduction %>
-        <br>
-
-          <%= link_to edit_user_path(@user) do %>
-            <i class="fas fa-user-cog"></i>
-          <% end %>
-        </div>
-
-        <h2>New Post</h2>
-        <%= form_with model: @post do |f| %>
-          <h5>Title</h5>
-          <%= f.text_field :title %>
-          <h5>Opinion</h5>
-          <%= f.text_area :body %>
-          <h5>cat image</h5>
-          <%= f.file_field :image, accept: "image/*" %>
-          <%= f.submit 'Create Post' %>
-        <% end %>
-      </div>
 
       <div class="col-md-8 offset-md-1">
-        <h2>User</h2>
+        <h2>会員</h2>
         <table class="table table-hover">
 
           <thead>

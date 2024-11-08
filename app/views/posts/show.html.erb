@@ -1,46 +1,5 @@
- <div class="container">
-    <div class="row">
-      <div class="col-md-3">
+<%= render 'posts/new_post', user: @user, post: @post %>
 
-<h5>Posts#show</h5>
-<div>
-  <%= flash[:notice]%>
-</div>
-
-<h2>my page</h2>
-  <tbody>
-    <%= image_tag @user.get_profile_image(100, 100), size: "100x100"%>
-
-    <th>name</th>
-    <th><%= @user.name %></th><br>
-    <th>introduction</th>
-    <th><%= @user.introduction%></th>
-
-  <%= link_to edit_user_path(@user) do %>
-　<i class="fas fa-user-cog"></i>
-  <% end %>
-  </tbody>
-
-<h2>New post</h2>
- <% if @post.errors.any? %>
-    <%= @post.errors.count %>件のエラーが発生しました
-      <ul>
-        <% @post.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-  <% end %>
-
-  <%= form_with model: @post_new do |f| %>
-    <h5>Title</h5>
-      <%= f.text_field :title %>
-    <h5>Opinion</h5>
-      <%= f.text_area :body %>
-       <h5>cat image</h5>
- 　　　　　 <%= f.file_field :image, accept: "image/*" %>
-      <%= f.submit 'Create Book' %>
-      <% end %>
-    </div>
 
 <div class="col-md-8 offset-md-1">
 <h2>post detail</h2>
